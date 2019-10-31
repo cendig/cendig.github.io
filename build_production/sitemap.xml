@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+ <url>
+  <loc>https://centrisign.africa/about-us</loc>
+  <lastmod>2019-10-31T14:31:52+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://centrisign.africa/contact</loc>
+  <lastmod>2019-10-31T14:31:52+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://centrisign.africa</loc>
+  <lastmod>2019-10-31T14:31:52+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://centrisign.africa/services/mobile-app-development</loc>
+  <lastmod>2019-10-31T14:31:52+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+ <url>
+  <loc>https://centrisign.africa/services/web-app-development</loc>
+  <lastmod>2019-10-31T14:31:52+00:00</lastmod>
+  <changefreq>daily</changefreq>
+ </url>
+</urlset>
