@@ -9,7 +9,7 @@ meta_description:
         <div class="uk-container uk-container uk-container-small ">
             <div>
                 <p>Centrisign Digital is a mobile app development company that is capable of running your business processes on mobile platforms.</p>
-                <p>Mobile device usage has exploded over the last several years, in this  regard, we can help ensure that your business is accessible through hese digital mobile platforms. </p>
+                <p>Mobile device usage has exploded over the last several years, in this  regard, we can help ensure that your business is accessible through these digital mobile platforms. </p>
                 <p>Our expertise ranges from minimum viable products to complex mobile solutions with third-party integration.</p>
             </div>
         </div>
