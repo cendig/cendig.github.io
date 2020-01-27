@@ -31,7 +31,7 @@
         <div class="uk-container uk-container-small">
             <div class="uk-text-center">
                 <h4 class="uk-text-lead uk-text-bold">Do you have a project for us?</h4>
-                <p>We have worked son cool projects with some cool clients. </p>
+                <p>We have worked on cool projects with some cool clients. </p>
                 <p>Join in and let's innovate together.</p>
                 <a href="mailto:info@centrisign.africa" class="uk-button uk-button-danger uk-button-large"><span class="uk-text-bold">Let's Talk</span></a>
             </div>
