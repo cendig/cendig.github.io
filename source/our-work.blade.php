@@ -1,11 +1,6 @@
 ---
 extends: _layouts.page
 title: Our Work
-meta_description:
----
----
-extends: _layouts.page
-title: Our Work
 meta_description: Centrisign Digital is a capable IT consulting and software development Company with experience from a wide range of clients and applications deployed. We have worked with clients from the E-commerce, Retail, Non-Profit Industries.
 ---
 
