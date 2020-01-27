@@ -1,7 +1,7 @@
 ---
 extends: _layouts.page
 title: Contact Us
-meta_description:
+meta_description: Talk to us about IT consulting, Software development, Cloud migration and strategy. Email us at info@centrisign.africa.
 ---
 
 @section('content')

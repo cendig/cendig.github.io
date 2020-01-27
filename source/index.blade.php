@@ -1,4 +1,7 @@
-@extends('_layouts.master')
+---
+extends: _layouts.master
+meta_description: We are are an IT consultancy based in Nairobi with experience in the E-commerce/Retail and micro payments Industries.
+---
 
 @section('body')
     <div class="uk-section-medium uk-background-primary bg-yellow-dark" data-src="assets/images/folk-pattern.png" uk-img>

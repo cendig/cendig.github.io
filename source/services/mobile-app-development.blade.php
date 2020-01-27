@@ -1,7 +1,7 @@
 ---
 extends: _layouts.page
 title: Mobile applications development
-meta_description:
+meta_description: Centrisign Digital is a mobile app development company that is capable of running your business processes on mobile platforms.
 ---
 
 @section('content')

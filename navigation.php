@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Our Work' => 'our-work',
     'Who we are' => 'about-us',
     'Services' => [
         'url' => 'services/web-app-development',

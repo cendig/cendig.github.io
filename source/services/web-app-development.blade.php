@@ -1,7 +1,7 @@
 ---
 extends: _layouts.page
 title: Web applications development
-meta_description:
+meta_description: Centrisign Digital is a web application development company with vast amounts of experience in building rich, usable and super fast solutions using current Industry standard  technologies.
 ---
 
 @section('content')

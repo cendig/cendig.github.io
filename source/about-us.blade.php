@@ -1,7 +1,7 @@
 ---
 extends: _layouts.page
 title: About Us
-meta_description:
+meta_description: We’re an African software consultancy with extensive experience in solving problems and innovating the future of business using technology.
 ---
 
 @extends('_layouts.page')

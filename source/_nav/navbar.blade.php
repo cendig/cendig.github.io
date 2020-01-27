@@ -42,4 +42,7 @@
             @endforeach
         </ul>
     </div>
+    <div class="uk-navbar-right">
+        <a href="mailto:info@centrisign.africa" class="uk-text-uppercase uk-button uk-button-danger"><i uk-icon="icon: mail"></i> &nbsp; Let's talk</a>
+    </div>
 </div>

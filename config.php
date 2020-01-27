@@ -2,13 +2,16 @@
 
 return [
     'production' => false,
-    'baseUrl' => 'https://centrisign.africa',
+    'baseUrl' => '',
     'collections' => [
+        'case_studies' => [
+            'path' => 'our-work/{filename}',
+        ],
     ],
 
     'siteName' => 'Centrisign Digital | Enterprise Software Development, Design & Consulting',
 
-    'siteDescription' => '',
+    'siteDescription' => 'Centrisign Digital is an innovative and reliable Enterprise Software Development, Design & Consulting provider in the Kenyan and african market. We have vast experience in the Retail, E-commerce and Payments Industry.',
 
     // navigation menu
     'navigation' => require_once('navigation.php'),
