@@ -63,6 +63,7 @@
   border: 3px solid gray;
 }
 
-a:hover {
-  color: orange;
+.uk-active > a {
+  color: orange !important;
+  font-weight: bold;
 }

@@ -12,7 +12,7 @@
         <ul class="uk-navbar-nav uk-visible@s">
             @foreach ($items as $label => $item)
                 @if ($url = is_string($item) ? $item : $item->url)
-                    <li>
+                    <li class="{{ $page->isActive($url) ? 'uk-active' : '' }}">
                         <a href="{{ $page->url($url) }}"> {{ $label }}</a>
 
                         @if (! is_string($item) && isset($item['children']))

@@ -16,22 +16,4 @@
             <p>{{ $post->excerpt }}</p>
         </div>
     </div>
-{{--    <div class="uk-card uk-card-default">--}}
-{{--        <div class="uk-card-media-top">--}}
-{{--            <a href="{{ $post->getUrl() }}">--}}
-{{--                @if($post->featured_image !== null)--}}
-{{--                    <img src="{{ $post->featured_image }}" alt="{{ $post->title }}" uk-img>--}}
-{{--                @else--}}
-{{--                    <img src="" alt="{{ $post->title }}" uk-img>--}}
-{{--                @endif--}}
-{{--            </a>--}}
-{{--        </div>--}}
-{{--        <div class="uk-card-body" style="padding: 20px 20px">--}}
-{{--            <a href="{{ $post->getUrl() }}" class="uk-link-reset">--}}
-{{--                --}}{{--                <p style="margin: 0 0 5px 0">{{ $post->client }}</p>--}}
-{{--                <h3 class="uk-card-title" style="margin-top: 0">{{ $post->title }}</h3>--}}
-{{--            </a>--}}
-{{--            <p>{{ $post->excerpt }}</p>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 </div>
