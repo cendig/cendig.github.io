@@ -2,6 +2,7 @@
 
 return [
     'Our Work' => 'our-work',
+    'Insights' => 'insights',
     'Who we are' => 'about-us',
     'Services' => [
         'url' => 'services/web-app-development',

@@ -54,3 +54,15 @@
       transform: scale(1.04);
   }
 }
+
+.image-rounded{
+  width:200px;
+  height:200px;
+  object-fit:cover;
+  border-radius:50%;
+  border: 3px solid gray;
+}
+
+a:hover {
+  color: orange;
+}
