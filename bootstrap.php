@@ -16,8 +16,4 @@ use TightenCo\Jigsaw\Jigsaw;
  * });
  */
 
-$events->afterBuild(function (Jigsaw $jigsaw) {
-    if ($jigsaw->getEnvironment() !== 'local') {
-        App\Listeners\GenerateSitemap::class;
-    }
-});
+$events->afterBuild(App\Listeners\GenerateSitemap::class);
