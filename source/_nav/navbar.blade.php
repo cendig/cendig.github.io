@@ -35,7 +35,7 @@
                         @endif
                     </li>
                 @else
-                    <li>
+                    <li class="{{ $page->isActive($url) ? 'uk-active' : '' }}">
                         <a href="#"> {{ $label }}</a>
                     </li>
                 @endif

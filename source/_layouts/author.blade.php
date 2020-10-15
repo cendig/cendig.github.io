@@ -10,24 +10,29 @@
     </div>
     <div class="uk-section">
         <div class="uk-container uk-container-small">
-            @yield('content')
+            <img class="uk-border-circle" src="{{ $page->avatar }}" width="200" height="200" alt="Border circle">
+            <h1>{{ $page->name }}</h1>
+            <h1>{{ $page->bio }}</h1>
         </div>
     </div>
 
-    @if ($page->getNext())
-        <section class="uk-section uk-section-muted uk-section-small">
-            <div class="uk-container uk-container">
-                <div class="uk-text-center">
-                    <a href="{{ $page->getNext()->getPath() }}" class="uk-link-reset">
-                        <i class="uk-text-bold" uk-icon="icon: arrow-right; ratio: 3"></i>
-                        <p class="uk-text-bold uk-text-uppercase">next article</p>
-                        <p class="uk-text-lead uk-text-bold uk-text-uppercase" style="font-size: 32px">{{ $page->getNext()->title }}</p>
-                    </a>
+    <div class="uk-section uk-section-muted uk-section-small uk-padding-small">
+        <div class="uk-container">
+            <div class="uk-padding-small" uk-grid>
+                <div class="uk-width-expand@m">
+                    <div>
+                        @foreach($page->posts as $post)
+                            @include('_components.insights_preview_inline', ['authorName' => $page->name] )
+                        @endforeach
+                    </div>
                 </div>
             </div>
-        </section>
-    @endif
-    <section class="uk-section @if ($page->getNext()) uk-section-default @else uk-section-muted @endif uk-section-small">
+        </div>
+    </div>
+
+
+{{--    uk-section-default--}}
+    <section class="uk-section uk-section-muted uk-section-small">
         <div class="uk-container uk-container-small">
             <div class="uk-text-center">
                 <h4 class="uk-text-lead uk-text-bold">Do you have a project for us?</h4>
