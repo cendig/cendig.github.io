@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'Home' => '/',
     'Our Work' => 'our-work',
     'Insights' => 'insights',
     'Who we are' => 'about-us',
