@@ -1,10 +1,55 @@
 <?php
 
+$apiUrl = env('API_URL');
+$assetUrl = env('ASSET_URL', env('API_URL'));
+$apiToken = env('API_KEY');
+
+$opts = [
+    "http" => [
+        "method" => "GET",
+        "header" => "Accept-language: en\r\n"
+//            . "api-key: " . env('API_KEY') . "\r\n"
+    ]
+];
+
+$context = stream_context_create($opts);
+
+function getPostStructure($post, $assetUrl)
+{
+    return [
+        'id' => $post->_id,
+        'published' => $post->published,
+        'featured' => $post->featured,
+        'pinned' => $post->pinned,
+        'title' => $post->title,
+        'slug' => $post->title_slug,
+        'body' => $post->content,
+        'page_description' => $post->excerpt,
+        'excerpt' => $post->excerpt,
+        'featured_image' => $assetUrl . $post->featured_image->path,
+        'featured_image_caption' => $post->title,
+        'publish_date' => $post->publish_date,
+        '_created' => $post->publish_date,
+        'meta' => [
+            'meta_description' => $post->meta_description ?? $post->excerpt,
+            'opengraph_title' => $post->meta_title ?? $post->title,
+            'opengraph_description' => $post->meta_description ?? $post->excerpt,
+            'opengraph_image' => $assetUrl . $post->featured_image->path,
+//            'opengraph_image_width' =>$post->featured_image->width,
+//            'opengraph_image_height' => $post->featured_image->height,
+            'twitter_title' => $post->meta_title ?? $post->title,
+            'twitter_description' => $post->meta_description ?? $post->excerpt,
+            'twitter_image' => $assetUrl . $post->featured_image->path,
+        ],
+    ];
+}
+
 return [
     'production' => false,
-    'baseUrl' => '',
+    'baseUrl' => env('BASE_URL','http://localhost:3000'),
     'siteName' => 'Centrisign Digital | Enterprise Software Development, Design & Consulting',
     'siteDescription' => 'Centrisign Digital is an innovative and reliable Enterprise Software Development, Design & Consulting provider in the Kenyan and african market. We have vast experience in the Retail, E-commerce and Payments Industry.',
+    'site_logo' => env('BASE_URL','http://localhost:3000') . '/assets/images/logo-black.png',
 
     // navigation menu
     'navigation' => require_once('navigation.php'),
@@ -26,51 +71,44 @@ return [
         return starts_with($path, 'http') ? $path : '/' . trimPath($path);
     },
 
+    'getDate' => function ($page) {
+        return \Carbon\Carbon::parse($page->_created)->toFormattedDateString();
+    },
+
     'collections' => [
         'case_studies' => [
             'path' => 'our-work/{filename}',
         ],
         'posts' => [
-            'extends' => '_layouts.insights',
+            'extends' => '_layouts.single-insight',
+            'author' => 'Centrisign Digital',
+            'sort' => '-date',
             'path' => 'insights/{slug}',
-            'items' => function () {
-                $posts = json_decode(file_get_contents(env('API_URL') . '/rest/posts?api_key=' . env('API_KEY'),'r'));
+            'items' => function () use($context, $apiUrl, $apiToken, $assetUrl) {
+                $posts = json_decode(file_get_contents($apiUrl . "/api/collections/get/blog?sort[_created]=1&token=$apiToken",'r', $context));
 
-                return collect($posts)->map(function ($post) {
-                    return [
-                        'title' => $post->title,
-                        'slug' => $post->slug,
-                        'content' => $post->body,
-                        'excerpt' => $post->excerpt,
-                        'featured_image' => env('API_URL') . $post->featured_image,
-                        'featured_image_caption' => $post->featured_image_caption,
-                        'publish_date' => $post->publish_date,
-                        'meta' => [
-                            'meta_description' => $post->meta->meta_description,
-                            'opengraph_title' => $post->meta->opengraph_title,
-                            'opengraph_description' => $post->meta->opengraph_description,
-                            'opengraph_image' => $post->meta->opengraph_image,
-                            'opengraph_image_width' => $post->meta->opengraph_image_width,
-                            'opengraph_image_height' => $post->meta->opengraph_image_height,
-                            'twitter_title' => $post->meta->twitter_title,
-                            'twitter_description' => $post->meta->twitter_description,
-                            'twitter_image' => $post->meta->twitter_image,
-                        ],
-                    ];
-                });
-            },
-        ],
-        'tags' => [
-            'items' => function () {
-                $tags = json_decode(file_get_contents(env('API_URL') . '/rest/tags?api_key=' . env('API_KEY')));
-
-                return collect($tags)->map(function ($tag) {
-                    return [
-                        'name' => $tag->name,
-                        'slug' => $tag->slug,
-                    ];
+                return collect($posts->entries)->map(function ($post) use ($assetUrl) {
+                    return getPostStructure($post, $assetUrl);
                 });
             },
         ],
     ],
+
+    'getFeaturedPost' => function($page) use($apiUrl, $apiToken, $assetUrl) {
+        $featured = json_decode(file_get_contents("$apiUrl/api/collections/get/blog?filter[featured]=1?token=$apiToken"));
+
+        if (isset($featured->entries[0])) {
+            return getPostStructure($featured->entries[0], $assetUrl);
+        } else {
+            return [];
+        }
+    },
+
+    'getPinnedPosts' => function($page) use($apiUrl, $apiToken, $assetUrl) {
+        $featured = json_decode(file_get_contents("$apiUrl/api/collections/get/blog?filter[pinned]=1?token=$apiToken"));
+
+        return collect($featured->entries)->map(function ($post) use ($assetUrl) {
+            return getPostStructure($post, $assetUrl);
+        });
+    },
 ];
