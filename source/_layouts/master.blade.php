@@ -43,7 +43,7 @@
         @stack('meta')
 
         @if ($page->production)
-        <!-- Insert analytics code here -->
+            <!-- Insert analytics code here -->
         @endif
 
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
