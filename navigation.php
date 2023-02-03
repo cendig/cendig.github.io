@@ -3,7 +3,7 @@
 return [
     'Home' => '/',
     'Our Work' => 'our-work',
-    'Insights' => 'insights',
+//    'Insights' => 'insights',
     'Who we are' => 'about-us',
     'Services' => [
         'url' => 'services/web-app-development',
