@@ -95,7 +95,7 @@ return [
     ],
 
     'getFeaturedPost' => function($page) use($apiUrl, $apiToken, $assetUrl) {
-        $featured = json_decode(file_get_contents("$apiUrl/api/collections/get/blog?filter[featured]=1?token=$apiToken"));
+        $featured = json_decode(file_get_contents("$apiUrl/api/collections/get/blog?filter[featured]=1&token=$apiToken"));
 
         if (isset($featured->entries[0])) {
             return getPostStructure($featured->entries[0], $assetUrl);
@@ -105,7 +105,7 @@ return [
     },
 
     'getPinnedPosts' => function($page) use($apiUrl, $apiToken, $assetUrl) {
-        $featured = json_decode(file_get_contents("$apiUrl/api/collections/get/blog?filter[pinned]=1?token=$apiToken"));
+        $featured = json_decode(file_get_contents("$apiUrl/api/collections/get/blog?filter[pinned]=1&token=$apiToken"));
 
         return collect($featured->entries)->map(function ($post) use ($assetUrl) {
             return getPostStructure($post, $assetUrl);
