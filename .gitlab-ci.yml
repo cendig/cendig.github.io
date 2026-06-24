@@ -1,4 +1,4 @@
-image: ambientum/php:8.3-nginx
+image: php:8.3-cli-alpine
 
 cache:
   paths:
