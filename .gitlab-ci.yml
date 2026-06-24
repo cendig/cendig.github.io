@@ -25,4 +25,4 @@ pages:
     paths:
       - build_production
   only:
-    - main
+    - master
