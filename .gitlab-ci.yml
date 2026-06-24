@@ -11,6 +11,7 @@ pages:
     - apk add --no-cache nodejs npm curl libxml2-dev $PHPIZE_DEPS
     - docker-php-ext-install xmlwriter
     - curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+    - export NODE_OPTIONS=--openssl-legacy-provider
   script:
     - composer install --prefer-dist --no-ansi --no-interaction --no-progress
     - npm install
