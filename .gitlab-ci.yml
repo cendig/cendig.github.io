@@ -8,21 +8,14 @@ cache:
 pages:
   stage: deploy
   before_script:
-    # Install Node.js & NPM if not present in the PHP image
-    - curl -sL https://nodesource.com | bash -
-    - apt-get install -y nodejs
+    - apk add --no-cache nodejs npm
   script:
-    # Install PHP and frontend dependencies
     - composer install --prefer-dist --no-ansi --no-interaction --no-progress
     - npm install
-    
-    # Compile assets and generate the static HTML files
     - npm run build
-    
-    # GitLab Pages requires the folder to be named 'public'
-    # - mv build_production public
+    - mv build_production public
   artifacts:
     paths:
-      - build_production
+      - public
   only:
     - master
