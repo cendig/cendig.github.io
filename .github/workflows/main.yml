@@ -23,6 +23,8 @@ jobs:
       run: npm install
     - name: Build Site
       run: npm run production
+      env:
+        NODE_OPTIONS: --openssl-legacy-provider
     - name: Stage Files
       run: git add -f build_production
     - name: Commit files
