@@ -11,6 +11,9 @@ on:
   repository_dispatch:
     types:
       - webhook
+      
+permissions:
+  contents: write
 
 jobs:
   build-site:
